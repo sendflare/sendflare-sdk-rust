@@ -1,0 +1,31 @@
+[package]
+name = "sendflare-sdk"
+version = "1.0.0"
+edition = "2021"
+authors = ["Sendflare Team"]
+description = "The SDK for sendflare service written in Rust"
+license = "MIT"
+repository = "https://github.com/sendflare/sendflare-sdk-rust"
+homepage = "https://docs.sendflare.io"
+documentation = "https://docs.rs/sendflare-sdk"
+readme = "README.md"
+keywords = ["sendflare", "email", "sdk", "api"]
+categories = ["api-bindings", "web-programming"]
+
+[dependencies]
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[lib]
+name = "sendflare_sdk"
+path = "src/lib.rs"
+
+[[test]]
+name = "integration_test"
+path = "tests/integration_test.rs"
+
