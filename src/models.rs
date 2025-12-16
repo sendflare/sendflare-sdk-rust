@@ -44,26 +44,6 @@ pub struct SendEmailReq {
 /// Send Email response entity
 pub type SendEmailResp = CommonResponse<serde_json::Value>;
 
-/// Contact info entity
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ContactItem {
-    pub status: String,
-    #[serde(rename = "emailAddress")]
-    pub email_address: String,
-    pub language: String,
-    #[serde(rename = "firstName")]
-    pub first_name: String,
-    #[serde(rename = "lastName")]
-    pub last_name: String,
-    #[serde(rename = "phoneNumber")]
-    pub phone_number: String,
-    pub birthday: String,
-    pub company: String,
-    #[serde(rename = "vipLevel")]
-    pub vip_level: i32,
-    pub amount: String,
-}
-
 /// Get Contact list request entity
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ListContactReq {
@@ -82,7 +62,7 @@ pub struct ListContactResp {
     pub page_size: i32,
     #[serde(rename = "totalCount")]
     pub total_count: i64,
-    pub data: Vec<ContactItem>,
+    pub list: Vec<HashMap<String, String>>,
 }
 
 /// Save contact request entity
