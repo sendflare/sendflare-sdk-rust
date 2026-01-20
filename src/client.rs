@@ -2,7 +2,7 @@ use crate::models::*;
 use reqwest::{Client, StatusCode};
 use std::time::Duration;
 
-const BASE_URL: &str = "https://api.sendflare.io";
+const BASE_URL: &str = "https://api.sendflare.com";
 const REQUEST_TIMEOUT: u64 = 10; // seconds
 
 /// Sendflare SDK Client

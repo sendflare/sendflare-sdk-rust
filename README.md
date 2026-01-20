@@ -317,7 +317,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 ## Documentation
 
-For more information, visit: [https://docs.sendflare.io](https://docs.sendflare.io)
+For more information, visit: [https://docs.sendflare.com](https://docs.sendflare.com)
 
 API documentation: [https://docs.rs/sendflare-sdk](https://docs.rs/sendflare-sdk)
 
