@@ -54,15 +54,32 @@ pub struct ListContactReq {
     pub page_size: i32,
 }
 
+/// Nested data structure containing the contact list
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ContactListData {
+    pub list: Vec<HashMap<String, String>>,
+}
+
 /// Get Contact list response entity
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ListContactResp {
+    // CommonResponse fields
+    #[serde(rename = "requestId")]
+    pub request_id: String,
+    pub code: i32,
+    pub success: bool,
+    pub message: String,
+    pub ts: i64,
+    
+    // PaginateResp fields
     pub page: i32,
     #[serde(rename = "pageSize")]
     pub page_size: i32,
     #[serde(rename = "totalCount")]
     pub total_count: i64,
-    pub list: Vec<HashMap<String, String>>,
+    
+    // Data wrapper with list
+    pub data: ContactListData,
 }
 
 /// Save contact request entity
