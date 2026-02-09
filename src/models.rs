@@ -54,9 +54,17 @@ pub struct ListContactReq {
     pub page_size: i32,
 }
 
-/// Nested data structure containing the contact list
+/// Nested data structure containing pagination and contact list
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ContactListData {
+    // PaginateResp fields
+    pub page: i32,
+    #[serde(rename = "pageSize")]
+    pub page_size: i32,
+    #[serde(rename = "totalCount")]
+    pub total_count: i64,
+    
+    // Contact list
     pub list: Vec<HashMap<String, String>>,
 }
 
@@ -71,14 +79,7 @@ pub struct ListContactResp {
     pub message: String,
     pub ts: i64,
     
-    // PaginateResp fields
-    pub page: i32,
-    #[serde(rename = "pageSize")]
-    pub page_size: i32,
-    #[serde(rename = "totalCount")]
-    pub total_count: i64,
-    
-    // Data wrapper with list
+    // Data wrapper with pagination and list
     pub data: ContactListData,
 }
 

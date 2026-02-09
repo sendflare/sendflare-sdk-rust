@@ -46,7 +46,7 @@ async fn test_get_contact_list() {
 
     match client.get_contact_list(&req).await {
         Ok(resp) => {
-            println!("Response: total_count={}", resp.total_count);
+            println!("Response: total_count={}", resp.data.total_count);
         }
         Err(e) => {
             println!("Expected error without valid token: {}", e);
