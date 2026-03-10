@@ -16,6 +16,8 @@ async fn test_send_email() {
         to: "to@example.com".to_string(),
         subject: "test".to_string(),
         body: "test email".to_string(),
+        cc: vec!["cc@example.com".to_string()],
+        bcc: vec!["bcc@example.com".to_string()],
     };
 
     println!("Request: {:?}", req);

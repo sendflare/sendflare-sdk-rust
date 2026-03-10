@@ -39,6 +39,8 @@ pub struct SendEmailReq {
     pub to: String,
     pub subject: String,
     pub body: String,
+    pub cc: Vec<String>,
+    pub bcc: Vec<String>,
 }
 
 /// Send Email response entity
