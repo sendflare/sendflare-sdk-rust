@@ -50,6 +50,27 @@ impl SendflareClient {
         self.handle_response(response).await
     }
 
+    /// Send a batch of emails
+    ///
+    /// # Arguments
+    ///
+    /// * `req` - Batch send email request
+    pub async fn batch_send_email(&self, req: &BatchSendEmailReq) -> Result<BatchSendEmailResp, Box<dyn std::error::Error>> {
+        let path = "/v1/batchSend";
+        let url = format!("{}{}", BASE_URL, path);
+    }
+        let response = self
+            .client
+            .post(&url)
+            .header("Authorization", format!("Bearer {}", self.token))
+            .header("Content-Type", "application/json")
+            .json(req)
+            .send()
+            .await?;
+
+        self.handle_response(response).await
+    }
+
     /// Get contact list
     ///
     /// # Arguments

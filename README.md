@@ -12,7 +12,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-sendflare-sdk = "1.0.0"
+sendflare-sdk = "1.0.2"
 tokio = { version = "1.0", features = ["full"] }
 ```
 

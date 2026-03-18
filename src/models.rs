@@ -41,10 +41,26 @@ pub struct SendEmailReq {
     pub body: String,
     pub cc: Vec<String>,
     pub bcc: Vec<String>,
+    pub reply_to: Vec<String>,
 }
 
 /// Send Email response entity
 pub type SendEmailResp = CommonResponse<serde_json::Value>;
+
+/// Batch Send Email request entity
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct BatchSendEmailReq {
+    pub from: String,
+    pub to: Vec<String>,
+    pub subject: String,
+    pub body: String,
+    pub cc: Vec<String>,
+    pub bcc: Vec<String>,
+    pub reply_to: Vec<String>,
+}
+
+/// Batch Send Email response entity
+pub type BatchSendEmailResp = CommonResponse<serde_json::Value>;
 
 /// Get Contact list request entity
 #[derive(Debug, Clone, Serialize, Deserialize)]

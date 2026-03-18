@@ -18,11 +18,34 @@ async fn test_send_email() {
         body: "test email".to_string(),
         cc: vec!["cc@example.com".to_string()],
         bcc: vec!["bcc@example.com".to_string()],
+        reply_to: vec!["replyTo@example.com".to_string()],
     };
 
     println!("Request: {:?}", req);
 
     match client.send_email(&req).await {
+        Ok(resp) => {
+            println!("Response: {:?}", resp);
+        }
+        Err(e) => {
+            println!("Expected error without valid token: {}", e);
+            // This is expected without a valid token
+            assert!(true);
+        }
+    }
+}
+
+#[tokio::test]
+async fn test_batch_send_email() {
+    let client = SendflareClient::new("this-is-my-token").unwrap();
+
+    let req = BatchSendEmailReq {
+        from: "test@example.com".to_string(),
+        to: vec!["to@example.com".to_string()],
+    };
+    println!("Request: {:?}", req);
+
+    match client.batch_send_email(&req).await {
         Ok(resp) => {
             println!("Response: {:?}", resp);
         }

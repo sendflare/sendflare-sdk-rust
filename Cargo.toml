@@ -1,6 +1,6 @@
 [package]
 name = "sendflare-sdk"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 authors = ["Sendflare Team"]
 description = "The SDK for sendflare service written in Rust"
